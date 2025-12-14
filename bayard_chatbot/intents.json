@@ -1,0 +1,34 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": ["hi", "hello", "hey"],
+      "responses": ["Hello! Welcome to Bayard Vacations. How can I help you today?"]
+    },
+    {
+      "tag": "packages",
+      "patterns": ["travel packages", "holiday packages", "tour packages"],
+      "responses": ["We offer domestic and international travel packages including beach, honeymoon, and adventure trips."]
+    },
+    {
+      "tag": "destinations",
+      "patterns": ["popular destinations", "places to visit", "destinations"],
+      "responses": ["Our popular destinations include Bali, Maldives, Dubai, Europe, and top Indian locations."]
+    },
+    {
+      "tag": "pricing",
+      "patterns": ["package cost", "pricing", "how much does it cost"],
+      "responses": ["Pricing depends on destination, duration, and season. Please contact us for a customized quote."]
+    },
+    {
+      "tag": "booking",
+      "patterns": ["how to book", "booking process", "reserve a trip"],
+      "responses": ["You can book by contacting our travel experts. We will guide you through the entire process."]
+    },
+    {
+      "tag": "fallback",
+      "patterns": [],
+      "responses": ["I'm sorry, I didn't understand that. Could you please rephrase?"]
+    }
+  ]
+}

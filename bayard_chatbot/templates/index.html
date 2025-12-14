@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bayard Vacations Chatbot</title>
+    <style>
+        body { font-family: Arial; background: #f4f4f4; }
+        #chatbox { width: 400px; margin: 50px auto; background: white; padding: 15px; }
+        #messages { height: 300px; overflow-y: auto; border: 1px solid #ccc; padding: 10px; }
+        input { width: 75%; padding: 8px; }
+        button { padding: 8px; }
+    </style>
+</head>
+<body>
+
+<div id="chatbox">
+    <h3>Bayard Vacations Chatbot</h3>
+    <div id="messages">
+  <b>Bot:</b> Welcome to <b>Bayard Vacations</b>! ✈️<br>
+  How can I help you today?<br><br>
+</div>
+
+    <br>
+    <input type="text" id="userInput" placeholder="Type your question..." />
+    <button onclick="sendMessage()">Send</button>
+</div>
+
+<script>
+function sendMessage() {
+    let input = document.getElementById("userInput");
+    let message = input.value;
+    if (!message) return;
+
+    let messagesDiv = document.getElementById("messages");
+    messagesDiv.innerHTML += "<b>You:</b> " + message + "<br>";
+
+    fetch("/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: message })
+    })
+    .then(res => res.json())
+    .then(data => {
+        messagesDiv.innerHTML += "<b>Bot:</b> " + data.reply + "<br><br>";
+        messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    });
+
+    input.value = "";
+}
+</script>
+
+</body>
+</html>
